@@ -1,0 +1,16 @@
+info:
+  app:
+    name: KTT Integration Gateway
+    version: ${project.version}
+spring:
+  application:
+    name: KTT_IGW
+  http:
+    encoding:
+      enabled: true
+      force: true
+      charset: UTF-8
+    gzip:
+      enabled: false
+server:
+  port: 9090
