@@ -1,8 +1,11 @@
-package com.ktt.mip.igw.user.domain;
+package com.ktt.mip.igw.domain;
+
+import org.apache.ibatis.type.Alias;
 
 import java.io.Serializable;
 import java.util.Collection;
 
+@Alias("User")
 public class User implements Serializable {
 
     private int seq;
@@ -10,6 +13,13 @@ public class User implements Serializable {
     private String username;
     private String phone;
 
+
+    public User() {
+    }
+
+    public User(String userId) {
+        this.userId = userId;
+    }
 
     private Collection<Role> roles;
 
@@ -51,5 +61,17 @@ public class User implements Serializable {
 
     public void setRoles(Collection<Role> roles) {
         this.roles = roles;
+    }
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "seq=" + seq +
+                ", userId='" + userId + '\'' +
+                ", username='" + username + '\'' +
+                ", phone='" + phone + '\'' +
+                ", roles=" + roles +
+                '}';
     }
 }

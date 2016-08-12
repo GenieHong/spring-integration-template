@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ktt.mip.project.user.mapper.UserMapper">
+
+    <select id="selectUsers" parameterType="User" resultType="User">
+        <include refid="com.ktt.base.mapper.BaseMapper.pagingHeader"/>
+        SELECT
+            ROW_NUMBER() OVER(ORDER BY seq DESC) AS RNUM,
+            userId;
+            username;
+            phone;
+        FROM
+            User
+        ORDER BY
+            seq DESC
+        <include refid="com.ktt.base.mapper.BaseMapper.pagingFooter"/>
+    </select>
+
+    <select id="selectUser" parameterType="User" resultType="User">
+        SELECT
+            userId,
+            username,
+            phone
+        FROM
+            User
+        WHERE
+            userId = #{userId}
+    </select>
+
+    <insert id="insertUser" parameterType="User">
+        INSERT INTO
+          User
+          (seq, userId, username, phone)
+        VALUES
+          (#{seq}, #{userId}, #{username}, #{phone})
+    </insert>
+
+    <update id="updateUser"  parameterType="User">
+        UPDATE
+          User
+        SET
+          userId = #{userId},
+          username = #{username},
+          phone = #{phone}
+        WHERE
+          seq = #{seq}
+    </update>
+
+    <delete id="deleteUser" parameterType="User">
+        DELETE
+        FROM
+          USER
+        WHERE
+          seq = ${seq}
+    </delete>
+</mapper>

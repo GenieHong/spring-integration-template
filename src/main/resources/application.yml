@@ -1,10 +1,10 @@
 info:
   app:
-    name: KTT Integration Gateway
+    name: KTT IGW Project
     version: ${project.version}
 spring:
   application:
-    name: KTT_IGW
+    name: IGW
   http:
     encoding:
       enabled: true
@@ -12,5 +12,29 @@ spring:
       charset: UTF-8
     gzip:
       enabled: false
-server:
-  port: 9090
+logging:
+  config: classpath:logback.xml
+datasource:
+  datasource1:
+    url: jdbc:h2:mem:testdb1;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+    initial: true
+    validationQuery: SELECT 1
+    maxTotal: 2
+    maxIdle: 1
+    initialSize: 1
+    defaultAutoCommit: false
+  datasource2:
+    url: jdbc:h2:mem:testdb2;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+    initial: true
+    validationQuery: SELECT 1
+    maxTotal: 2
+    maxIdle: 1
+    initialSize: 1
+    defaultAutoCommit: false
+

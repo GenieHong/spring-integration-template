@@ -1,4 +1,4 @@
-package com.ktt.mip.igw.user.domain;
+package com.ktt.mip.igw.domain;
 
 
 import java.io.Serializable;

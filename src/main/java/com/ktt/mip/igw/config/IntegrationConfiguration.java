@@ -10,7 +10,6 @@ import org.springframework.integration.http.support.DefaultHttpHeaderMapper;
 import org.springframework.integration.mapping.HeaderMapper;
 
 @Configuration
-@EnableIntegration
 public class IntegrationConfiguration {
 
     @Bean

@@ -1,4 +1,4 @@
-package com.ktt.mip.igw.user.flow;
+package com.ktt.mip.igw.http.user;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
